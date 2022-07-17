@@ -10,6 +10,8 @@ it("End-to-end test", async () => {
   cy.get("[data-testid=btn-shuffle]").should("exist");
   cy.get("[data-testid=btn-reset]").should("exist");
   cy.get("[data-testid=remaining-cards]").contains("52");
+
+  // Card only shows up after drawing the first card
   cy.get('[data-testid=card-wrapper]').should('not.exist');
   const btnDraw = cy.get("[data-testid=btn-draw]").click();
   cy.get('[data-testid=card-wrapper]').should('exist');
